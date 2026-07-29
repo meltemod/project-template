@@ -1,0 +1,19 @@
+Package: {{ cookiecutter.r_package_name }}
+Type: Project
+Title: {{ cookiecutter.project_name }}
+Version: 0.1.0
+Authors@R:
+    person("{{ cookiecutter.author_name.split(' ')[0] }}", "{{ cookiecutter.author_name.split(' ')[1:] | join(' ') }}", , "{{ cookiecutter.author_email }}", role = c("aut", "cre"){% if cookiecutter.author_orcid %},
+           comment = c(ORCID = "{{ cookiecutter.author_orcid }}"){% endif %})
+Encoding: UTF-8
+Description: Declares this project's R package dependencies. renv is
+    configured with snapshot type "explicit", so renv.lock records exactly
+    what is declared here rather than whatever renv can infer from library()
+    calls in the code. Add packages under an Imports: field below, one per
+    line and comma-separated, then re-run scripts/00-setup.R. For example:
+    Imports:
+        tidyverse,
+        here,
+        yaml
+Depends:
+    R (>= {{ cookiecutter.r_version }})

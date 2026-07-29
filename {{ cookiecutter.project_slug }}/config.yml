@@ -1,0 +1,22 @@
+# Shared settings, read by BOTH R (yaml::read_yaml) and Python
+# (yaml.safe_load). Single source of truth, so values cannot drift between
+# the two languages.
+#
+#   R      : cfg <- yaml::read_yaml("config.yml"); cfg$paths$raw
+#   Python : cfg = yaml.safe_load(open("config.yml")); cfg["paths"]["raw"]
+#
+# Put anything both languages need here. Secrets do NOT belong in this file —
+# it is committed. Those go in .env, which is gitignored.
+
+project:
+  name: "{{ cookiecutter.project_name }}"
+
+paths:
+  raw: "data/raw"
+  interim: "data/interim"
+  processed: "data/processed"
+  outputs: "outputs"
+
+period:
+  start_year: 2020
+  end_year: 2024

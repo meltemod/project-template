@@ -1,0 +1,26 @@
+# Citation metadata in Citation File Format. GitHub reads this file to show
+# a "Cite this repository" button, and Zenodo reads it when minting a DOI.
+# https://citation-file-format.github.io/
+#
+# This is also the ONLY place the ORCID survives in a Python-only project:
+# DESCRIPTION carries it for R, but pyproject.toml has no field for it.
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "{{ cookiecutter.project_name }}"
+abstract: "{{ cookiecutter.description }}"
+type: software
+version: 0.1.0
+authors:
+  - given-names: "{{ cookiecutter.author_name.split(' ')[0] }}"
+    family-names: "{{ cookiecutter.author_name.split(' ')[1:] | join(' ') }}"
+    email: "{{ cookiecutter.author_email }}"
+{% if cookiecutter.author_orcid %}    orcid: "https://orcid.org/{{ cookiecutter.author_orcid }}"
+{% endif %}{% if cookiecutter.license in ['MIT', 'Apache-2.0', 'CC-BY-4.0'] %}license: {{ cookiecutter.license }}
+{% endif %}
+# Fill these in when there is something to point at. `date-released` belongs
+# to a release, not to the day the directory was created, so it is left unset
+# rather than stamped with a date that would quietly become a lie.
+#
+# repository-code: "https://github.com/<user>/{{ cookiecutter.project_slug }}"
+# date-released: YYYY-MM-DD
+# doi: 10.5281/zenodo.XXXXXXX

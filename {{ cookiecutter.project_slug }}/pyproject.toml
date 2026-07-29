@@ -1,0 +1,27 @@
+[project]
+name = "{{ cookiecutter.project_slug }}"
+version = "0.1.0"
+description = "{{ cookiecutter.description }}"
+authors = [
+    { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" },
+]
+
+# Compatibility floor for the resolver. Deliberately looser than the exact
+# interpreter pinned in .python-version — they do different jobs.
+requires-python = ">={{ cookiecutter.python_version.split('.')[0] }}.{{ cookiecutter.python_version.split('.')[1] }}"
+
+# Declare dependencies here; uv.lock records the exact resolved versions.
+# Edit this list, never uv.lock.
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.6",
+]
+
+[tool.uv]
+# A set of scripts, not an installable library.
+package = false
+
+[tool.ruff]
+line-length = 100

@@ -1,0 +1,56 @@
+# ---- Secrets -----------------------------------------------------------
+# Never commit. See .env.example for the template.
+.env
+.env.*
+!.env.example
+.Renviron
+
+# ---- Data --------------------------------------------------------------
+# Policy: raw and interim data are reproducible from scripts/, so they are
+# not versioned. data/processed/ IS committed, on the assumption it holds
+# small analysis-ready tables. If processed outputs grow past a few MB,
+# revisit this.
+data/raw/*
+data/interim/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+
+# Common bulk formats, wherever they land. Add or remove to taste.
+*.zip
+*.tar.gz
+*.parquet
+*.sqlite
+
+# ---- R -----------------------------------------------------------------
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+
+# ---- Python ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.ruff_cache/
+
+# ---- Quarto / R Markdown ----------------------------------------------
+/.quarto/
+*_files/
+*_cache/
+/reports/*.html
+/reports/*.pdf
+/reports/*.docx
+
+# ---- OS / editor -------------------------------------------------------
+.DS_Store
+.vscode/

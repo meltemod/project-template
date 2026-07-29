@@ -1,0 +1,15 @@
+{
+  "project_name": "My Project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "r_package_name": "{{ cookiecutter.project_slug.replace('_', '.') }}",
+  "author_name": "Your Name",
+  "author_email": "you@example.com",
+  "author_orcid": "",
+  "description": "A short description of the project.",
+  "use_python": ["yes", "no"],
+  "use_r": ["yes", "no"],
+  "python_version": "3.12.13",
+  "r_version": "4.6",
+  "license": ["MIT", "Apache-2.0", "CC-BY-4.0", "Proprietary", "None"],
+  "_copy_without_render": ["renv/activate.R"]
+}
